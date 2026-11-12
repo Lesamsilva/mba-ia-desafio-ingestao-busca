@@ -17,7 +17,7 @@ O sistema utiliza o conteúdo recuperado do PDF como contexto para a geração d
 
 | Tecnologia | Finalidade |
 |---|---|
-| Python 3.11
+| Python 3.11 | Linguagem de programação |
 | LangChain | Integração dos componentes de ingestão, recuperação e geração |
 | Google Gemini | Geração de embeddings e respostas |
 | PostgreSQL 17 | Banco de dados |
