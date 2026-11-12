@@ -33,7 +33,6 @@ _FALLBACK_RESPONSE = "Não tenho informações necessárias para responder sua p
 _SEARCH_CHAIN = None
 
 def _required_settings():
-    """Carrega e valida as configurações sem exibir seus valores."""
     load_dotenv()
 
     settings = {
@@ -52,7 +51,6 @@ def _required_settings():
     return settings
 
 def _document_context(documents):
-    """Monta o contexto textual, mantendo a origem disponível nos metadados."""
     context_parts = []
     for document in documents:
         metadata = getattr(document, "metadata", {}) or {}
@@ -75,8 +73,6 @@ def _document_context(documents):
 
 
 class _SearchChain:
-    """Chain pequena e reutilizável para recuperação e geração de respostas."""
-
     def __init__(self, vector_store, chat_model):
         self.vector_store = vector_store
         self.chat_model = chat_model
@@ -136,7 +132,6 @@ def _build_search_chain():
     return _SearchChain(vector_store, chat_model)
 
 def search_prompt(question=None):
-    """Retorna a chain reutilizável ou responde diretamente a uma pergunta."""
     global _SEARCH_CHAIN
 
     if _SEARCH_CHAIN is None:
